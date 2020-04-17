@@ -1,4 +1,4 @@
-from bs4 import BeautifulSoup
+import bs4
 import requests
 try:
     while True:
@@ -7,7 +7,7 @@ try:
         # get the code of page
         content = req.content
         # parse the code of page
-        soup = BeautifulSoup(content, "lxml")
+        soup = bs4.BeautifulSoup(content, "lxml")
         # get the price
         price = soup.find("div", {"class": "My(6px) Pos(r) smartphone_Mt(6px)"})
         print("price =", price.find("span").text)
